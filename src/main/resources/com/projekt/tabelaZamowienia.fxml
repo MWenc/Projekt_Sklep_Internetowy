@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefWidth="1200.0" stylesheets="@../../css/admin.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projekt.sceny.tabelaZamowienia">
+    <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="30.0" />
+            </BorderPane.margin>
+            <children>
+                <VBox fx:id="edytujZam" alignment="CENTER" layoutX="489.0" layoutY="135.0" spacing="10.0" visible="false">
+                    <children>
+                        <Label fx:id="edytujZamL">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <HBox spacing="24.0">
+                            <children>
+                                <Label text="Id klienta" />
+                                <TextField fx:id="edytujIdKlienta" />
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="37.0" spacing="10.0">
+                            <children>
+                                <Label text="Id produktu" />
+                                <TextField fx:id="edytujIdProduktu" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" spacing="70.0">
+                            <children>
+                                <Button  mnemonicParsing="false" onAction="#edytujZamowienie" text="Edytuj" />
+                                <Hyperlink onAction="#wyczyscInterfejs" text="Powrót" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox fx:id="dodajZam" alignment="CENTER" layoutX="493.0" layoutY="100.0" prefHeight="200.0" spacing="10.0" visible="false">
+                    <children>
+                        <Label text="Podaj dane do zamowienia">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="idKlientaZam" promptText="Podaj id klienta" />
+                        <TextField fx:id="idProduktuZam" promptText="Podaj id produktu" />
+                        <HBox alignment="TOP_CENTER" spacing="70.0">
+                            <children>
+                                <Button  mnemonicParsing="false" onAction="#dodajZamowienie" text="Zamów" />
+                                <Hyperlink onAction="#wyczyscInterfejs" text="Powrót" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <TableView fx:id="table" layoutX="130.0" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="940.0">
+                    <columns>
+                        <TableColumn fx:id="idZamowieniaCol" prefWidth="88.0" text="Id Zamowienia" />
+                        <TableColumn fx:id="adresCol" prefWidth="172.0" text="Adres" />
+                        <TableColumn fx:id="kodPocztowyCol" prefWidth="97.0" text="Kod Pocztowy" />
+                        <TableColumn fx:id="idKlientaCol" prefWidth="65.0" text="Id Klienta" />
+                        <TableColumn fx:id="idProduktuCol" prefWidth="81.0" text="Id Produktu" />
+                        <TableColumn fx:id="nazwaProduktuCol" prefWidth="175.0" text="Nazwa Produktu" />
+                        <TableColumn fx:id="producentProduktuCol" prefWidth="121.0" text="Producent Produktu" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </center>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu fx:id="mRekordy" mnemonicParsing="false" text="Rekordy">
+                    <items>
+                        <MenuItem  mnemonicParsing="false" onAction="#zmianaInterfejsuDodaj" text="Dodaj" />
+                    </items>
+                </Menu>
+                <Menu fx:id="mSzukaj" mnemonicParsing="false" text="Szukaj">
+                    <items>
+                        <MenuItem id="id zamowienia" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po Id zamowienia" />
+                        <MenuItem id="id klienta" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po Id klienta" />
+                        <MenuItem id="id produktu" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po Id produktu" />
+                        <MenuItem id="kodzie pocztowym" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po Kodzie pocztowym" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Admin Panel">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaTypyProduktow" text="Tabela Typy produktów" />
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaKlienci" text="Tabela Klienci" />
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaProduktow" text="Tabela Produktów" />
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyPanelAdmina" text="Wróć do panelu" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <bottom>
+        <VBox fx:id="wyszukiwanieBox" alignment="CENTER" disable="true" prefHeight="100.0">
+            <children>
+                <Label fx:id="doWyszukiwaniaL" />
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="doWyszukiwaniaF" layoutX="450.0" layoutY="29.0" maxWidth="-Infinity" onKeyPressed="#keyPressedWyszukiwanie" prefWidth="300.0" promptText=" " />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="-20.0" />
+                    </VBox.margin>
+                </AnchorPane>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </VBox>
+    </bottom>
+</BorderPane>

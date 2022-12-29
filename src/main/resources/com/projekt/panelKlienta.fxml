@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="root" stylesheets="@../../css/klient.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projekt.sceny.panelKlienta">
+    <bottom>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <BorderPane fx:id="powitanie" prefHeight="400.0" prefWidth="600.0">
+                    <center>
+                        <Label id="panel-klienta" text="Witamy!" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                    </center>
+                </BorderPane>
+                <TableView fx:id="tableZamowienia" prefHeight="410.0" prefWidth="610.0" visible="false">
+                    <columns>
+                        <TableColumn fx:id="idZamowieniaCol" prefWidth="91.0" text="Id Zamowienia" />
+                        <TableColumn fx:id="adresCol" prefWidth="99.0" text="Adres" />
+                        <TableColumn fx:id="kodPocztowyCol" prefWidth="94.0" text="Kod Pocztowy" />
+                        <TableColumn fx:id="idProduktuCol" prefWidth="76.0" text="Id Produktu" />
+                        <TableColumn fx:id="nazwaProduktuCol" prefWidth="152.0" text="Nazwa Produktu" />
+                        <TableColumn fx:id="producentCol" prefWidth="97.0" text="Producent" />
+                    </columns>
+                </TableView>
+                <VBox fx:id="zmianaHaslaBox" alignment="CENTER" onKeyPressed="#keyPressedZmianaHasla" prefHeight="400.0" prefWidth="600.0" spacing="10.0" visible="false">
+                    <children>
+                        <Label text="Zmiana hasła">
+                            <font>
+                                <Font size="23.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="zmianaHasla" maxWidth="-Infinity" prefWidth="200.0" />
+                        <Button mnemonicParsing="false" onAction="#zmienHaslo" text="Zatwierdź" />
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </bottom>
+    <center>
+        <AnchorPane prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="492.0" layoutY="13.0" text="ID klienta:" />
+                <TextField fx:id="idKlienta" disable="true" layoutX="554.0" layoutY="10.0" prefHeight="25.0" prefWidth="32.0" />
+                <Label id="panel-klienta" fx:id="panelKlienta" layoutX="183.0" layoutY="8.0" text="Panel Klienta">
+                    <font>
+                        <Font name="System Bold" size="38.0" />
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="20.0" />
+            </BorderPane.margin>
+        </AnchorPane>
+    </center>
+    <top>
+        <MenuBar id="menupk" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Produkty">
+                    <items>
+                        <MenuItem id="menuitem" mnemonicParsing="false" onAction="#zmianaScenyTabelaProduktow" text="Pokaż Produkty" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Zamówienie">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#pokazTabeleZamowienia" text="Twoje zamówienia" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Panel Klienta">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaKonteneraHaslo" text="Zmień hasło" />
+                        <MenuItem mnemonicParsing="false" onAction="#usunKonto" text="Usuń konto" />
+                        <MenuItem mnemonicParsing="false" onAction="#Wyloguj" text="Wyloguj" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+</BorderPane>

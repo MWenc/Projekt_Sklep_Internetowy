@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefWidth="1200.0" stylesheets="@../../css/klient.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projekt.sceny.tabelaProduktyKlient">
+    <center>
+        <TableView fx:id="table" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idProduktuCol" prefWidth="52.0" text="Id " />
+                <TableColumn fx:id="cenaCol" prefWidth="91.0" text=" Cena" />
+                <TableColumn fx:id="nazwaCol" prefWidth="115.0" text="Nazwa" />
+                <TableColumn fx:id="modelCol" prefWidth="180.0" text="Model" />
+                <TableColumn fx:id="producentCol" prefWidth="113.0" text="Producent" />
+                <TableColumn fx:id="opisCol" minWidth="0.0" prefWidth="380.0" text="Opis" />
+                <TableColumn fx:id="typProduktuCol" minWidth="0.0" prefWidth="268.0" text="Typ Produktu" />
+            </columns>
+            <BorderPane.margin>
+                <Insets left="30.0" right="30.0" top="30.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Szukaj">
+                    <items>
+                        <MenuItem id="ID" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po Id produktu" />
+                        <MenuItem id="Nazwie" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po nazwie" />
+                        <MenuItem id="Typie Produktu" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po typie produktu" />
+                        <MenuItem id="Producencie" mnemonicParsing="false" onAction="#interfejsDoWyszukiwania" text="Po producencie" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Panel">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyPanelKlienta" text="Wróć do panelu" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <bottom>
+        <VBox fx:id="wyszukiwanieBox" alignment="CENTER" disable="true" prefHeight="100.0">
+            <children>
+                <Label fx:id="doWyszukiwaniaL" />
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="doWyszukiwaniaF" layoutX="520.0" layoutY="29.0" maxWidth="-Infinity" onKeyPressed="#keyPressedWyszukiwanie" prefWidth="300.0" promptText=" " />
+                        <ComboBox fx:id="comboBoxTypProduktu" layoutX="540.0" layoutY="29.0" onKeyPressed="#keyPressedWyszukiwanie" promptText="Wybierz typ produktu" visible="false" />
+                        <Label fx:id="comboBoxL" layoutX="540.0" layoutY="54.0" text="Po wybraniu kliknij Enter by zatwierdzić" visible="false">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="-20.0" />
+                    </VBox.margin>
+                </AnchorPane>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </VBox>
+    </bottom>
+</BorderPane>

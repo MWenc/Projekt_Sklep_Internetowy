@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="root" onKeyPressed="#keyPressed" stylesheets="@../../css/klient.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projekt.sceny.Logowanie">
+    <center>
+        <AnchorPane prefWidth="500.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane layoutX="150.0" layoutY="14.0" prefWidth="200.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="64.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="136.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="64.0" minHeight="7.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="17.0" prefWidth="45.0" text="Login:" />
+                        <TextField fx:id="login" GridPane.columnIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="TEXT" />
+                            </cursor>
+                        </TextField>
+                        <PasswordField fx:id="haslo" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="TEXT" />
+                            </cursor>
+                        </PasswordField>
+                        <Label prefHeight="17.0" prefWidth="41.0" text="Hasło:" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Button fx:id="bzaloguj" layoutX="222.0" layoutY="131.0" mnemonicParsing="false" onAction="#bLogowanie" text="Zaloguj">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <Reflection fraction="1.0" topOpacity="0.24" />
+                    </effect>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <Pane BorderPane.alignment="CENTER">
+            <children>
+                <Hyperlink layoutX="300.0" layoutY="46.0" onAction="#zmianaScenyHyperlinkR" text="Nie posiadasz jeszcze konta ?">
+                    <effect>
+                        <Blend mode="GREEN" />
+                    </effect>
+                </Hyperlink>
+            <Hyperlink layoutX="14.0" layoutY="46.0" onAction="#zamknij" text="Zamknij aplikacje">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="16.36" offsetX="2.0" offsetY="2.0" radius="8.717500000000001" spread="0.08" width="20.51">
+                     <color>
+                        <Color red="0.4736842215061188" green="0.4736842215061188" blue="0.4736842215061188" />
+                     </color>
+                  </DropShadow>
+               </effect></Hyperlink>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="20.0" />
+            </BorderPane.margin>
+        </Pane>
+    </bottom>
+    <top>
+        <AnchorPane prefHeight="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label id="logowanie-text" layoutX="152.0" layoutY="50.0" text="Logowanie" textFill="WHITE">
+                    <font>
+                        <Font name="System Italic" size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+</BorderPane>

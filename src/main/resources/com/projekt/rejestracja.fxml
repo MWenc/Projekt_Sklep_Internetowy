@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" id="root" onKeyPressed="#keyPressedRejestracja"
+            stylesheets="@../../css/klient.css" xmlns="http://javafx.com/javafx/17"
+            fx:controller="com.projekt.sceny.Rejestracja">
+    <center>
+        <AnchorPane  prefWidth="500.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane  layoutX="133.0" layoutY="14.0" prefHeight="300.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0"/>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="150.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="40.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label  text="Login:"/>
+                        <TextField fx:id="login" maxWidth="-Infinity" GridPane.columnIndex="1"/>
+                        <Label  text="Hasło:" GridPane.rowIndex="1"/>
+                        <TextField fx:id="haslo" layoutX="74.0" layoutY="22.0" maxWidth="-Infinity"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="imie" layoutX="74.0" layoutY="68.0" maxWidth="-Infinity" prefWidth="100.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <TextField fx:id="nazwisko" layoutX="74.0" layoutY="68.0" maxWidth="-Infinity" prefWidth="100.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label  layoutX="10.0" layoutY="59.0" text="Imie:" GridPane.rowIndex="2"/>
+                        <Label  layoutX="10.0" layoutY="103.0" text="Nazwisko:" GridPane.rowIndex="3"/>
+                        <Label  layoutX="10.0" layoutY="149.0" text="Email:" GridPane.rowIndex="4"/>
+                        <Label layoutX="10.0" layoutY="149.0" text="Data Urodzenia:"
+                               GridPane.rowIndex="5"/>
+                        <TextField fx:id="email" layoutX="74.0" layoutY="145.0" maxWidth="-Infinity"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <DatePicker fx:id="dataUrodzenia" GridPane.columnIndex="1" GridPane.rowIndex="5"
+                                    promptText="Wybierz datę"/>
+                        <Label  layoutX="10.0" layoutY="107.0" text="Adres:" GridPane.rowIndex="6"/>
+                        <Label  layoutX="10.0" layoutY="160.0" text="Kod pocztowy:"
+                               GridPane.rowIndex="7"/>
+                        <TextField fx:id="adres" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                        <TextField fx:id="kodPocztowy" maxWidth="-Infinity" promptText="np. 12-345"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                    </children>
+                </GridPane>
+            </children>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+        </AnchorPane>
+    </center>
+    <bottom>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="20.0" top="20.0"/>
+            </BorderPane.margin>
+            <children>
+                <Button fx:id="bzarejestruj" layoutX="133.0" layoutY="4.0" mnemonicParsing="false"
+                        onAction="#RejestracjaKlienta" text="Zarejestruj"/>
+                <Hyperlink layoutX="338.0" layoutY="5.0" onAction="#zmianaScenyHyperlinkL" text="Powrót"/>
+            </children>
+        </AnchorPane>
+    </bottom>
+    <top>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <Label id="rejestracja-text"  layoutX="149.0" layoutY="2.0" text="Rejestracja">
+                    <font>
+                        <Font name="System Italic" size="42.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+</BorderPane>

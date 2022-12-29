@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"  prefWidth="1200.0" stylesheets="@../../css/admin.css"
+            xmlns="http://javafx.com/javafx/17" fx:controller="com.projekt.sceny.tabelaTypyProduktow">
+    <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="30.0"/>
+            </BorderPane.margin>
+            <children>
+                <VBox fx:id="edytujTypProduktu" alignment="CENTER" layoutX="496.0" layoutY="154.0" spacing="10.0"
+                      visible="false">
+                    <children>
+                        <Label fx:id="edytujTypProduktL">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="47.0" spacing="24.0">
+                            <children>
+                                <Label text="Nazwa"/>
+                                <TextField fx:id="edytujNazwa"/>
+                            </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" spacing="70.0">
+                            <children>
+                                <Button  mnemonicParsing="false" onAction="#edytujTypProduktu"
+                                        text="Edytuj"/>
+                                <Hyperlink onAction="#wyczyscInterfejs" text="Powrót"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox fx:id="dodajTypProduktu" alignment="CENTER_LEFT" layoutX="449.0" layoutY="102.0"
+                      prefHeight="200.0" spacing="10.0" visible="false">
+                    <children>
+                        <Label text="Podaj dane do dodania typu produktu">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="dodajNazwa" promptText="Podaj nazwe"/>
+                        <HBox alignment="TOP_CENTER" spacing="70.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#dodajTypProduktu"
+                                        text="Dodaj typ produktu"/>
+                                <Hyperlink onAction="#wyczyscInterfejs" text="Powrót"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <TableView fx:id="table" layoutX="330.0" layoutY="2.0" maxWidth="-Infinity" minHeight="-Infinity"
+                           prefWidth="540.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="idProduktuCol" prefWidth="86.0" text="Id "/>
+                        <TableColumn fx:id="nazwaCol" prefWidth="313.0" text="Nazwa"/>
+                    </columns>
+                    <BorderPane.margin>
+                        <Insets left="30.0" right="30.0" top="30.0"/>
+                    </BorderPane.margin>
+                </TableView>
+            </children>
+            <padding>
+                <Insets right="30.0"/>
+            </padding>
+        </AnchorPane>
+    </center>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu fx:id="mRekordy" mnemonicParsing="false" text="Rekordy">
+                    <items>
+                        <MenuItem  mnemonicParsing="false" onAction="#zmianaInterfejsuDodaj"
+                                  text="Dodaj"/>
+                    </items>
+                </Menu>
+                <Menu fx:id="mSzukaj" mnemonicParsing="false" text="Szukaj">
+                    <items>
+                        <MenuItem id="ID"  mnemonicParsing="false"
+                                  onAction="#interfejsDoWyszukiwania" text="Po Id typu produktu"/>
+                        <MenuItem id="Nazwie"  mnemonicParsing="false"
+                                  onAction="#interfejsDoWyszukiwania" text="Po nazwie"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Admin Panel">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaZamowienia"
+                                  text="Tabela Zamówiania"/>
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaKlienci" text="Tabela Klienci"/>
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaProduktow"
+                                  text="Tabela Produktów"/>
+                        <MenuItem  mnemonicParsing="false" onAction="#zmianaScenyPanelAdmina"
+                                  text="Wróć do panelu"/>
+                    </items>
+                </Menu>
+            </menus>
+            <cursor>
+                <Cursor fx:constant="CLOSED_HAND"/>
+            </cursor>
+        </MenuBar>
+    </top>
+    <bottom>
+        <VBox fx:id="wyszukiwanieBox" alignment="CENTER" disable="true" prefHeight="100.0">
+            <children>
+                <Label fx:id="doWyszukiwaniaL"/>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="doWyszukiwaniaF" layoutX="450.0" layoutY="34.0" maxWidth="-Infinity"
+                                   onKeyPressed="#keyPressedWyszukiwanie" prefWidth="300.0" promptText=" "/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="-20.0"/>
+                    </VBox.margin>
+                </AnchorPane>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+        </VBox>
+    </bottom>
+</BorderPane>

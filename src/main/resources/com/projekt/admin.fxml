@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" stylesheets="@../../css/admin.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projekt.sceny.Admin">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Tabele">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaZamowienia" text="Zamówienia" />
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaKlientow" text="Klienci" />
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaProduktow" text="Produkty" />
+                        <MenuItem mnemonicParsing="false" onAction="#zmianaScenyTabelaTypyProduktow" text="Typy produktów" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Panel admina">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#changePanel" text="Zmiana hasła" />
+                        <MenuItem mnemonicParsing="false" onAction="#logOutB" text="Wyloguj" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <children>
+                <VBox fx:id="vboxHaslo" alignment="BOTTOM_CENTER" layoutX="150.0" layoutY="154.0" spacing="10.0" visible="false">
+                    <children>
+                        <Label text="Wprowadź nowe hasło">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="haslo" maxWidth="-Infinity" prefWidth="200.0" />
+                        <Button mnemonicParsing="false" onAction="#changePassword" text="Zmień">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </VBox>
+                <Label layoutX="133.0" layoutY="367.0" text="Masz możliwość edycji, usuwania oraz dodawania pól w bazie" textFill="#00000075">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <Label id="panel-admina" layoutX="120.0" layoutY="14.0" text="Panel Admina" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
